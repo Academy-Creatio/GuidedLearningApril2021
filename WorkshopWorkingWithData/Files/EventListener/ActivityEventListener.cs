@@ -79,20 +79,20 @@ namespace WorkshopWorkingWithData.Files.EventListener
 				as Select;
 
 			TimeZoneInfo userTimeZoneInfo = userConnection.CurrentUser.TimeZone;
-			DateTime start = TimeZoneInfo.ConvertTimeToUtc(activity.GetTypedColumnValue<DateTime>("StartDate"), userTimeZoneInfo);
-			DateTime due = TimeZoneInfo.ConvertTimeToUtc(activity.GetTypedColumnValue<DateTime>("DueDate"), userTimeZoneInfo);
+			DateTime startUTC = TimeZoneInfo.ConvertTimeToUtc(activity.GetTypedColumnValue<DateTime>("StartDate"), userTimeZoneInfo);
+			DateTime dueUTC = TimeZoneInfo.ConvertTimeToUtc(activity.GetTypedColumnValue<DateTime>("DueDate"), userTimeZoneInfo);
 
 			select.And()
 				//Case 1: Search target starts during new activity
-				.OpenBlock("StartDate").IsBetween(Column.Parameter(start)).And(Column.Parameter(due))
+				.OpenBlock("StartDate").IsBetween(Column.Parameter(startUTC)).And(Column.Parameter(dueUTC))
 
 				//Case2: Search target ends during new Activity
-				.Or("DueDate").IsBetween(Column.Parameter(start)).And(Column.Parameter(due))
+				.Or("DueDate").IsBetween(Column.Parameter(startUTC)).And(Column.Parameter(dueUTC))
 
 				//Case 3: activity inside search target;
 				.Or()
-					.OpenBlock("StartDate").IsLessOrEqual(Column.Parameter(start))
-					.And("DueDate").IsGreaterOrEqual(Column.Parameter(due))
+					.OpenBlock("StartDate").IsLessOrEqual(Column.Parameter(startUTC))
+					.And("DueDate").IsGreaterOrEqual(Column.Parameter(dueUTC))
 				.CloseBlock();
 
 			select.BuildParametersAsValue = true;
@@ -121,8 +121,8 @@ namespace WorkshopWorkingWithData.Files.EventListener
 
 			TimeZoneInfo userTimeZonInfo = userConnection.CurrentUser.TimeZone;
 
-			DateTime start = TimeZoneInfo.ConvertTimeToUtc(activity.GetTypedColumnValue<DateTime>("StartDate").AddSeconds(1), userTimeZonInfo);
-			DateTime due = TimeZoneInfo.ConvertTimeToUtc(activity.GetTypedColumnValue<DateTime>("DueDate").AddSeconds(-1), userTimeZonInfo);
+			DateTime UTC = TimeZoneInfo.ConvertTimeToUtc(activity.GetTypedColumnValue<DateTime>("StartDate").AddSeconds(1), userTimeZonInfo);
+			DateTime dueUTC = TimeZoneInfo.ConvertTimeToUtc(activity.GetTypedColumnValue<DateTime>("DueDate").AddSeconds(-1), userTimeZonInfo);
 			Guid ownerId = activity.GetTypedColumnValue<Guid>("OwnerId");
 
 			EntitySchemaQuery esqResult = new EntitySchemaQuery(userConnection.EntitySchemaManager, "Activity");
@@ -140,7 +140,6 @@ namespace WorkshopWorkingWithData.Files.EventListener
 				esqResult.CreateFilterWithParameters(FilterComparisonType.NotEqual, "Id", activity.GetTypedColumnValue<Guid>("Id"));
 			esqResult.Filters.Add(activityIdFilter);
 
-			esqResult.Filters.LogicalOperation = Terrasoft.Common.LogicalOperationStrict.And;
 			IEntitySchemaQueryFilterItem activityTypeFilter =
 				esqResult.CreateFilterWithParameters(FilterComparisonType.Equal, "Type", activityType);
 			esqResult.Filters.Add(activityTypeFilter);
@@ -167,15 +166,15 @@ namespace WorkshopWorkingWithData.Files.EventListener
 			var dateFilter1 = new EntitySchemaQueryFilterCollection(
 				esqResult,
 				Terrasoft.Common.LogicalOperationStrict.Or,
-				esqResult.CreateFilterWithParameters(FilterComparisonType.Between, "StartDate", start, due),
-				esqResult.CreateFilterWithParameters(FilterComparisonType.Between, "DueDate", start, due)
+				esqResult.CreateFilterWithParameters(FilterComparisonType.Between, "StartDate", UTC, dueUTC),
+				esqResult.CreateFilterWithParameters(FilterComparisonType.Between, "DueDate", UTC, dueUTC)
 			);
 
 			var dateFilter2 = new EntitySchemaQueryFilterCollection(
 				esqResult,
 				Terrasoft.Common.LogicalOperationStrict.And,
-				esqResult.CreateFilterWithParameters(FilterComparisonType.LessOrEqual, "StartDate", start),
-				esqResult.CreateFilterWithParameters(FilterComparisonType.GreaterOrEqual, "DueDate", due)
+				esqResult.CreateFilterWithParameters(FilterComparisonType.LessOrEqual, "StartDate", UTC),
+				esqResult.CreateFilterWithParameters(FilterComparisonType.GreaterOrEqual, "DueDate", dueUTC)
 			);
 
 			esqResult.Filters.Add(

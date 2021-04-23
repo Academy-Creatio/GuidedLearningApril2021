@@ -46,7 +46,7 @@ namespace WorkshopWorkingWithData
 		[WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Xml)]
 		public Stream GetAllContacts(QuryType qt)
 		{
-			//http://k_krylov:9020/0/rest/WorkshopWebService/GetAllContacts?qt=0
+			//http://k_krylov:9030/0/rest/WorkshopWebService/GetAllContacts?qt=0
 			Timer.Start();
 			Tuple<DataTable, string> result;
 			switch (qt)
@@ -74,7 +74,7 @@ namespace WorkshopWorkingWithData
 		[WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Xml)]
 		public Stream GetFilteredContacts(QuryType qt, string email)
 		{
-			//http://k_krylov:9020/0/rest/WorkshopWebService/GetFilteredContacts?qt=0&email=a.baker@ac.com
+			//http://k_krylov:9030/0/rest/WorkshopWebService/GetFilteredContacts?qt=0&email=a.baker@ac.com
 			Timer.Start();
 			Tuple<DataTable, string> result;
 			switch (qt)
@@ -104,7 +104,7 @@ namespace WorkshopWorkingWithData
 		{
 			// This is simple example of EntitySchemaQuery and use of reverse join expressions
 			// Example to run: 
-			// http://k_krylov:9020/0/rest/WorkshopWebService/GetAllDataReverseJoin?qt=1
+			// http://k_krylov:9030/0/rest/WorkshopWebService/GetAllDataReverseJoin?qt=1
 			Timer.Start();
 			Tuple<DataTable, string> result;
 			switch (qt)
@@ -132,7 +132,7 @@ namespace WorkshopWorkingWithData
 		[WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Xml)]
 		public Stream GetContactsWithMinutes(QuryType qt, Guid ContactId)
 		{
-			// http://k_krylov:9020/0/rest/WorkshopWebService/GetContactsWithMinutes?qt=1&ContactId=410006e1-ca4e-4502-a9ec-e54d922d2c00
+			// http://k_krylov:9030/0/rest/WorkshopWebService/GetContactsWithMinutes?qt=1&ContactId=410006e1-ca4e-4502-a9ec-e54d922d2c00
 			Timer.Start();
 			Tuple<DataTable, string> result;
 			switch (qt)
@@ -163,7 +163,7 @@ namespace WorkshopWorkingWithData
 		[WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
 		public string UpdateContactName(QuryType qt, Guid ContactId, string NewName)
 		{
-			// http://k_krylov:9020/0/rest/WorkshopWebService/UpdateContactName?qt=1&ContactId=410006e1-ca4e-4502-a9ec-e54d922d2c00&NewName=Kirill
+			// http://k_krylov:9030/0/rest/WorkshopWebService/UpdateContactName?qt=1&ContactId=410006e1-ca4e-4502-a9ec-e54d922d2c00&NewName=Kirill
 			Timer.Start();
 			string result = string.Empty;
 			switch (qt)
@@ -189,7 +189,7 @@ namespace WorkshopWorkingWithData
 		[WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
 		public string InsertSeveralContacts(QuryType qt)
 		{
-			// http://k_krylov:9020/0/rest/WorkshopWebService/InsertSeveralContacts?qt=1
+			// http://k_krylov:9030/0/rest/WorkshopWebService/InsertSeveralContacts?qt=1
 			Timer.Start();
 			string result = string.Empty;
 			switch (qt)
@@ -215,7 +215,7 @@ namespace WorkshopWorkingWithData
 		[WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
 		public string DeleteContact(QuryType qt, Guid ContactId)
 		{
-			// http://k_krylov:9020/0/rest/WorkshopWebService/DeleteContact?qt=1&ContactId=060b93d0-0b94-4967-af32-030ac0844ec9
+			// http://k_krylov:9030/0/rest/WorkshopWebService/DeleteContact?qt=1&ContactId=060b93d0-0b94-4967-af32-030ac0844ec9
 			Timer.Start();
 			string result = string.Empty;
 			switch (qt)

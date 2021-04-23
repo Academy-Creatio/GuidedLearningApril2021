@@ -35,7 +35,7 @@ namespace WorkshopWorkingWithData.Files.DataOperations
 		internal Tuple<DataTable, string> GetAllContactsCustomQuery()
 		{
 
-			CustomQuery custom = new CustomQuery(UserConnection, "Select Id, Name, Phone, Email from Contact");
+			CustomQuery custom = new CustomQuery(UserConnection, "Select \"Id\", \"Name\", \"Phone\", \"Email\" from public.\"Contact\"");
 			DataTable dt;
 
 			using (DBExecutor dbExecutor = UserConnection.EnsureDBConnection(QueryKind.General))
@@ -105,7 +105,7 @@ namespace WorkshopWorkingWithData.Files.DataOperations
 			esqResult.AddColumn("Email");
 			esqResult.AddColumn("Phone");
 
-			IEntitySchemaQueryFilterItem filterByEmail = esqResult.CreateFilterWithParameters(FilterComparisonType.NotEqual, "Email", email);
+			IEntitySchemaQueryFilterItem filterByEmail = esqResult.CreateFilterWithParameters(FilterComparisonType.Equal, "Email", email);
 			esqResult.Filters.Add(filterByEmail);
 
 			Select select = esqResult.GetSelectQuery(UserConnection);
@@ -169,7 +169,7 @@ namespace WorkshopWorkingWithData.Files.DataOperations
 			// read Name of SysAdminUnit connected to Contact
 			// https://academy.creatio.com/documents/technic-sdk/7-16/entityschemaquery-class-building-paths-columns
 			// [Name_of_ joinable_schema:Name_of_column_for_linking_of_joinable_schema:Name_of_column_for_linking_of_current_schema].
-			var sysAdminUnitName = esqResult.AddColumn("[SysAdminUnit:Contact:Id].Name"); 
+			var sysAdminUnitName = esqResult.AddColumn("[SysAdminUnit:Contact:Id].Name");
 			sysAdminUnitName.Name = "sysAdminUnitName";
 
 			Select select = esqResult.GetSelectQuery(UserConnection);
