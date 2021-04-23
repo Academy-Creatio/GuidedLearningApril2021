@@ -1,0 +1,488 @@
+{
+	"info": {
+		"_postman_id": "d616a8b6-bea0-49b0-a4a3-488a7a7d1e6a",
+		"name": "Guided Learning April 2021",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DataService",
+			"item": [
+				{
+					"name": "SELECT",
+					"item": [
+						{
+							"name": "SELECT ALL CONTACTS",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var BPMSESSIONID = postman.getResponseCookie(\"BPMSESSIONID\").value;\r",
+											"pm.environment.set(\"BPMSESSIONID\", BPMSESSIONID);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "BPMCSRF",
+										"value": "{{BPMCSRF}}",
+										"type": "text"
+									},
+									{
+										"key": "BPMSESSIONID",
+										"value": "{{BPMSESSIONID}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rootSchemaName\": \"Contact\",\r\n    \"columns\": {\r\n        \"items\": {\r\n            \"Id\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Id\"\r\n                }\r\n            },\r\n            \"Name\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Name\"\r\n                }\r\n            },\r\n            \"Email\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Email\"\r\n                }\r\n            },\r\n            \"Country\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Country.Name\"\r\n                }\r\n            },\r\n            \"AccounCountry\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Account.Country.Code\"\r\n                }\r\n            }\r\n        }\r\n    },\r\n    \"rowCount\": -1,\r\n    \"rowsOffset\": 0,\r\n    \"isPageable\": true,\r\n    \"useLocalization\": false,\r\n    \"useRecordDeactivation\": false,\r\n    \"adminUnitRoleSources\": 0,\r\n    \"ignoreDisplayValues\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI}}0/DataService/json/SyncReply/SelectQuery",
+									"host": [
+										"{{BaseURI}}0"
+									],
+									"path": [
+										"DataService",
+										"json",
+										"SyncReply",
+										"SelectQuery"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SELECT ALL CONTACT TYPE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var BPMSESSIONID = postman.getResponseCookie(\"BPMSESSIONID\").value;\r",
+											"pm.environment.set(\"BPMSESSIONID\", BPMSESSIONID);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "BPMCSRF",
+										"value": "{{BPMCSRF}}",
+										"type": "text"
+									},
+									{
+										"key": "BPMSESSIONID",
+										"value": "{{BPMSESSIONID}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rootSchemaName\": \"ContactType\",\r\n    \"columns\": {\r\n        \"items\": {\r\n            \"Id\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Id\"\r\n                }\r\n            },\r\n            \"Name\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Name\"\r\n                }\r\n            }\r\n        }\r\n    },\r\n    \"rowCount\": -1,\r\n    \"rowsOffset\": 0,\r\n    \"isPageable\": true,\r\n    \"useLocalization\": false,\r\n    \"useRecordDeactivation\": false,\r\n    \"adminUnitRoleSources\": 0,\r\n    \"ignoreDisplayValues\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI}}0/DataService/json/SyncReply/SelectQuery",
+									"host": [
+										"{{BaseURI}}0"
+									],
+									"path": [
+										"DataService",
+										"json",
+										"SyncReply",
+										"SelectQuery"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SELECT CONTACTS BY ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var BPMSESSIONID = postman.getResponseCookie(\"BPMSESSIONID\").value;\r",
+											"pm.environment.set(\"BPMSESSIONID\", BPMSESSIONID);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "BPMCSRF",
+										"value": "{{BPMCSRF}}",
+										"type": "text"
+									},
+									{
+										"key": "BPMSESSIONID",
+										"value": "{{BPMSESSIONID}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rootSchemaName\": \"Contact\",\r\n    \"columns\": {\r\n        \"items\": {\r\n            \"Id\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Id\"\r\n                }\r\n            },\r\n            \"Name\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Name\"\r\n                }\r\n            },\r\n            \"Email\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Email\"\r\n                }\r\n            },\r\n            \"Country\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Country.Name\"\r\n                }\r\n            },\r\n            \"AccounCountry\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Account.Country.Code\"\r\n                }\r\n            }\r\n        }\r\n    },\r\n    \"filters\": {\r\n\t\t\"items\": {\r\n            \"ById\": {\r\n                \"filterType\": 1,\r\n                \"comparisonType\": 3,\r\n                \"isEnabled\": true,\r\n                \"trimDateTimeParameterToDate\": false,\r\n                \"leftExpression\": {\r\n                    \"expressionType\": 0,\r\n                    \"columnPath\": \"Id\"\r\n                },\r\n                \"rightExpression\": {\r\n                    \"expressionType\": 2,\r\n                    \"parameter\": {\r\n                        \"dataValueType\": 0,\r\n                        \"value\": \"c4ed336c-3e9b-40fe-8b82-5632476472b4\"\r\n                    }\r\n                }\r\n            }\r\n        },\r\n        \"logicalOperation\": 0,\r\n        \"isEnabled\": true,\r\n        \"filterType\": 6,\r\n        \"rootSchemaName\": \"Contact\"\r\n\t},\r\n    \"rowCount\": -1,\r\n    \"rowsOffset\": 0,\r\n    \"isPageable\": true,\r\n    \"useLocalization\": false,\r\n    \"useRecordDeactivation\": false,\r\n    \"adminUnitRoleSources\": 0,\r\n    \"ignoreDisplayValues\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI}}0/DataService/json/SyncReply/SelectQuery",
+									"host": [
+										"{{BaseURI}}0"
+									],
+									"path": [
+										"DataService",
+										"json",
+										"SyncReply",
+										"SelectQuery"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SEARCH BY EMAIL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var BPMSESSIONID = postman.getResponseCookie(\"BPMSESSIONID\").value;\r",
+											"pm.environment.set(\"BPMSESSIONID\", BPMSESSIONID);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "BPMCSRF",
+										"value": "{{BPMCSRF}}",
+										"type": "text"
+									},
+									{
+										"key": "BPMSESSIONID",
+										"value": "{{BPMSESSIONID}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rootSchemaName\": \"Contact\",\r\n    \"columns\": {\r\n        \"items\": {\r\n            \"Id\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Id\"\r\n                }\r\n            },\r\n            \"Name\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Name\"\r\n                }\r\n            },\r\n            \"Email\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Email\"\r\n                }\r\n            },\r\n            \"Country\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Country.Name\"\r\n                }\r\n            },\r\n            \"AccounCountry\": {\r\n                \"expression\": {\r\n                    \"columnPath\": \"Account.Country.Code\"\r\n                }\r\n            },\r\n            \"DurationInMinutes\": {\r\n\t\t\t\t\"expression\": {\r\n\t\t\t\t\t\"expressionType\": 3,\r\n\t\t\t\t\t\"functionType\": 2,\r\n\t\t\t\t\t\"aggregationType\": 2,\r\n\t\t\t\t\t\"columnPath\": \"[Activity:Owner].DurationInMinutes\",\r\n\t\t\t\t\t\"subFilters\": {\r\n\t\t\t\t\t\t\"items\": {\r\n\t\t\t\t\t\t\t\"ByType\": {\r\n\t\t\t\t\t\t\t\t\"filterType\": 4,\r\n\t\t\t\t\t\t\t\t\"comparisonType\": 3,\r\n\t\t\t\t\t\t\t\t\"isEnabled\": true,\r\n\t\t\t\t\t\t\t\t\"trimDateTimeParameterToDate\": false,\r\n\t\t\t\t\t\t\t\t\"leftExpression\": {\r\n\t\t\t\t\t\t\t\t\t\"expressionType\": 0,\r\n\t\t\t\t\t\t\t\t\t\"columnPath\": \"Type\"\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\"rightExpressions\": [\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"expressionType\": 2,\r\n\t\t\t\t\t\t\t\t\t\t\"parameter\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"dataValueType\": 10,\r\n\t\t\t\t\t\t\t\t\t\t\t\"value\": \"fbe0acdc-cfc0-df11-b00f-001d60e938c6\"\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\"ByActivityCategory\": {\r\n\t\t\t\t\t\t\t\t\"filterType\": 4,\r\n\t\t\t\t\t\t\t\t\"comparisonType\": 3,\r\n\t\t\t\t\t\t\t\t\"isEnabled\": true,\r\n\t\t\t\t\t\t\t\t\"trimDateTimeParameterToDate\": false,\r\n\t\t\t\t\t\t\t\t\"leftExpression\": {\r\n\t\t\t\t\t\t\t\t\t\"expressionType\": 0,\r\n\t\t\t\t\t\t\t\t\t\"columnPath\": \"ActivityCategory\"\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\"rightExpressions\": [\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"expressionType\": 2,\r\n\t\t\t\t\t\t\t\t\t\t\"parameter\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"dataValueType\": 10,\r\n\t\t\t\t\t\t\t\t\t\t\t\"value\": \"f51c4643-58e6-df11-971b-001d60e938c6\"\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\"Status\": {\r\n\t\t\t\t\t\t\t\t\"filterType\": 4,\r\n\t\t\t\t\t\t\t\t\"comparisonType\": 3,\r\n\t\t\t\t\t\t\t\t\"isEnabled\": true,\r\n\t\t\t\t\t\t\t\t\"trimDateTimeParameterToDate\": false,\r\n\t\t\t\t\t\t\t\t\"leftExpression\": {\r\n\t\t\t\t\t\t\t\t\t\"expressionType\": 0,\r\n\t\t\t\t\t\t\t\t\t\"columnPath\": \"Status\"\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\"rightExpressions\": [\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"expressionType\": 2,\r\n\t\t\t\t\t\t\t\t\t\t\"parameter\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"dataValueType\": 10,\r\n\t\t\t\t\t\t\t\t\t\t\t\"value\": \"4bdbb88f-58e6-df11-971b-001d60e938c6\"\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\"ByStartDate\": {\r\n\t\t\t\t\t\t\t\t\"filterType\": 1,\r\n\t\t\t\t\t\t\t\t\"comparisonType\": 8,\r\n\t\t\t\t\t\t\t\t\"isEnabled\": true,\r\n\t\t\t\t\t\t\t\t\"trimDateTimeParameterToDate\": true,\r\n\t\t\t\t\t\t\t\t\"leftExpression\": {\r\n\t\t\t\t\t\t\t\t\t\"expressionType\": 0,\r\n\t\t\t\t\t\t\t\t\t\"columnPath\": \"StartDate\"\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\"rightExpression\": {\r\n\t\t\t\t\t\t\t\t\t\"expressionType\": 1,\r\n\t\t\t\t\t\t\t\t\t\"functionType\": 1,\r\n\t\t\t\t\t\t\t\t\t\"functionArgument\": {\r\n\t\t\t\t\t\t\t\t\t\t\"expressionType\": 2,\r\n\t\t\t\t\t\t\t\t\t\t\"parameter\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"dataValueType\": 4,\r\n\t\t\t\t\t\t\t\t\t\t\t\"value\": 7\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\t\"macrosType\": 25\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\"logicalOperation\": 0,\r\n\t\t\t\t\t\t\"isEnabled\": true,\r\n\t\t\t\t\t\t\"filterType\": 6,\r\n\t\t\t\t\t\t\"rootSchemaName\": \"Activity\"\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t},\r\n        }\r\n    },\r\n    \"filters\": {\r\n\t\t\"items\": {\r\n            \"ByEmail\": {\r\n                \"filterType\": 1,\r\n                \"comparisonType\": 3,\r\n                \"isEnabled\": true,\r\n                \"trimDateTimeParameterToDate\": false,\r\n                \"leftExpression\": {\r\n                    \"expressionType\": 0,\r\n                    \"columnPath\": \"Email\"\r\n                },\r\n                \"rightExpression\": {\r\n                    \"expressionType\": 2,\r\n                    \"parameter\": {\r\n                        \"dataValueType\": 1,\r\n                        \"value\": \"{{Email}}\"\r\n                    }\r\n                }\r\n            },\r\n            \"BySecondaryEmail\": {\r\n                \"filterType\": 5,\r\n                \"comparisonType\": 15,\r\n                \"isEnabled\": true,\r\n                \"trimDateTimeParameterToDate\": false,\r\n                \"leftExpression\": {\r\n                    \"expressionType\": 0,\r\n                    \"columnPath\": \"[ContactCommunication:Contact].Id\"\r\n                },\r\n                \"subFilters\": {\r\n                    \"items\": {\r\n                        \"728448d5-d3bc-4e9e-b5f6-7c3264175763\": {\r\n                            \"filterType\": 1,\r\n                            \"comparisonType\": 3,\r\n                            \"isEnabled\": true,\r\n                            \"trimDateTimeParameterToDate\": false,\r\n                            \"leftExpression\": {\r\n                                \"expressionType\": 0,\r\n                                \"columnPath\": \"Number\"\r\n                            },\r\n                            \"rightExpression\": {\r\n                                \"expressionType\": 2,\r\n                                \"parameter\": {\r\n                                    \"dataValueType\": 1,\r\n                                    \"value\": \"{{Email}}\"\r\n                                }\r\n                            }\r\n                        }\r\n                    },\r\n                    \"logicalOperation\": 0,\r\n                    \"isEnabled\": true,\r\n                    \"filterType\": 6,\r\n                    \"rootSchemaName\": \"ContactCommunication\"\r\n                }\r\n\t\t\t}\r\n        },\r\n        \"logicalOperation\": 1,\r\n        \"isEnabled\": true,\r\n        \"filterType\": 6,\r\n        \"rootSchemaName\": \"Contact\"\r\n\t},\r\n    \"rowCount\": -1,\r\n    \"rowsOffset\": 0,\r\n    \"isPageable\": true,\r\n    \"useLocalization\": false,\r\n    \"useRecordDeactivation\": false,\r\n    \"adminUnitRoleSources\": 0,\r\n    \"ignoreDisplayValues\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI}}0/DataService/json/SyncReply/SelectQuery",
+									"host": [
+										"{{BaseURI}}0"
+									],
+									"path": [
+										"DataService",
+										"json",
+										"SyncReply",
+										"SelectQuery"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "UPDATE",
+					"item": [
+						{
+							"name": "UPDATE CONTACT BY ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var BPMSESSIONID = postman.getResponseCookie(\"BPMSESSIONID\").value;\r",
+											"pm.environment.set(\"BPMSESSIONID\", BPMSESSIONID);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "BPMCSRF",
+										"value": "{{BPMCSRF}}",
+										"type": "text"
+									},
+									{
+										"key": "BPMSESSIONID",
+										"value": "{{BPMSESSIONID}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rootSchemaName\": \"Contact\",\r\n    \"columnValues\": {\r\n\t\t\"items\": {\r\n\t\t\t\"Name\": {\r\n\t\t\t\t\"expressionType\": 2,\r\n\t\t\t\t\"parameter\": {\r\n\t\t\t\t\t\"dataValueType\": 1,\r\n\t\t\t\t\t\"value\": \"Andrew Backer (changed from DS)\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"Email\": {\r\n\t\t\t\t\"expressionType\": 2,\r\n\t\t\t\t\"parameter\": {\r\n\t\t\t\t\t\"dataValueType\": 1,\r\n\t\t\t\t\t\"value\": \"some.email@fake.com\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"Type\": {\r\n\t\t\t\t\"expressionType\": 2,\r\n\t\t\t\t\"parameter\": {\r\n\t\t\t\t\t\"dataValueType\": 10,\r\n\t\t\t\t\t\"value\": \"ac278ef3-e63f-48d9-ba34-7c52e92fecfe\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t},\r\n    \"filters\": {\r\n\t\t\"items\": {\r\n            \"ById\": {\r\n                \"filterType\": 1,\r\n                \"comparisonType\": 3,\r\n                \"isEnabled\": true,\r\n                \"trimDateTimeParameterToDate\": false,\r\n                \"leftExpression\": {\r\n                    \"expressionType\": 0,\r\n                    \"columnPath\": \"Id\"\r\n                },\r\n                \"rightExpression\": {\r\n                    \"expressionType\": 2,\r\n                    \"parameter\": {\r\n                        \"dataValueType\": 0,\r\n                        \"value\": \"c4ed336c-3e9b-40fe-8b82-5632476472b4\"\r\n                    }\r\n                }\r\n            }\r\n        },\r\n        \"logicalOperation\": 0,\r\n        \"isEnabled\": true,\r\n        \"filterType\": 6,\r\n        \"rootSchemaName\": \"Contact\"\r\n\t},\r\n    \"useLocalization\": false,\r\n    \"useRecordDeactivation\": false,\r\n    \"adminUnitRoleSources\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI}}0/DataService/json/SyncReply/UpdateQuery",
+									"host": [
+										"{{BaseURI}}0"
+									],
+									"path": [
+										"DataService",
+										"json",
+										"SyncReply",
+										"UpdateQuery"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "DELETE CONTACTS BY ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var BPMSESSIONID = postman.getResponseCookie(\"BPMSESSIONID\").value;\r",
+											"pm.environment.set(\"BPMSESSIONID\", BPMSESSIONID);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "BPMCSRF",
+										"value": "{{BPMCSRF}}",
+										"type": "text"
+									},
+									{
+										"key": "BPMSESSIONID",
+										"value": "{{BPMSESSIONID}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rootSchemaName\": \"Contact\",\r\n    \"filters\": {\r\n\t\t\"items\": {\r\n            \"ById\": {\r\n                \"filterType\": 1,\r\n                \"comparisonType\": 3,\r\n                \"isEnabled\": true,\r\n                \"trimDateTimeParameterToDate\": false,\r\n                \"leftExpression\": {\r\n                    \"expressionType\": 0,\r\n                    \"columnPath\": \"Id\"\r\n                },\r\n                \"rightExpression\": {\r\n                    \"expressionType\": 2,\r\n                    \"parameter\": {\r\n                        \"dataValueType\": 0,\r\n                        \"value\": \"24e6d9e5-0e2b-449b-bd59-34f3aebb2ecb\"\r\n                    }\r\n                }\r\n            }\r\n        },\r\n        \"logicalOperation\": 0,\r\n        \"isEnabled\": true,\r\n        \"filterType\": 6,\r\n        \"rootSchemaName\": \"Contact\"\r\n\t},\r\n    \"useRecordDeactivation\": false,\r\n    \"adminUnitRoleSources\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI}}0/DataService/json/SyncReply/DeleteQuery",
+									"host": [
+										"{{BaseURI}}0"
+									],
+									"path": [
+										"DataService",
+										"json",
+										"SyncReply",
+										"DeleteQuery"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "INSERT",
+					"item": [
+						{
+							"name": "INSERT NEW CONTACT",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var BPMSESSIONID = postman.getResponseCookie(\"BPMSESSIONID\").value;\r",
+											"pm.environment.set(\"BPMSESSIONID\", BPMSESSIONID);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "BPMCSRF",
+										"value": "{{BPMCSRF}}",
+										"type": "text"
+									},
+									{
+										"key": "BPMSESSIONID",
+										"value": "{{BPMSESSIONID}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"rootSchemaName\": \"Contact\",\r\n\t\"columnValues\": {\r\n\t\t\"items\": {\r\n\t\t\t\"Name\": {\r\n\t\t\t\t\"expressionType\": 2,\r\n\t\t\t\t\"parameter\": {\r\n\t\t\t\t\t\"dataValueType\": 1,\r\n\t\t\t\t\t\"value\": \"Created with  DS\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"Email\": {\r\n\t\t\t\t\"expressionType\": 2,\r\n\t\t\t\t\"parameter\": {\r\n\t\t\t\t\t\"dataValueType\": 1,\r\n\t\t\t\t\t\"value\": \"dataservice@ds.com\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"Account\": {\r\n\t\t\t\t\"expressionType\": 2,\r\n\t\t\t\t\"parameter\": {\r\n\t\t\t\t\t\"dataValueType\": 10,\r\n\t\t\t\t\t\"value\": \"405947d0-2ffb-4ded-8675-0475f19f5a81\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI}}0/DataService/json/SyncReply/InsertQuery",
+									"host": [
+										"{{BaseURI}}0"
+									],
+									"path": [
+										"DataService",
+										"json",
+										"SyncReply",
+										"InsertQuery"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var BPMCSRF = postman.getResponseCookie(\"BPMCSRF\").value;\r",
+							"pm.environment.set(\"BPMCSRF\", BPMCSRF);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserName\": \"{{UserName}}\",\r\n    \"UserPassword\": \"{{UserPassword}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURI}}ServiceModel/AuthService.svc/Login",
+					"host": [
+						"{{BaseURI}}ServiceModel"
+					],
+					"path": [
+						"AuthService.svc",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"BPMCSRF\", \"\");\r",
+							"pm.environment.set(\"BPMSESSIONID\", \"\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "BPMCSRF",
+						"value": "{{BPMCSRF}}",
+						"type": "text"
+					},
+					{
+						"key": "BPMSESSIONID",
+						"value": "{{BPMSESSIONID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURI}}0/rest/MainMenuService/Logout",
+					"host": [
+						"{{BaseURI}}0"
+					],
+					"path": [
+						"rest",
+						"MainMenuService",
+						"Logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
