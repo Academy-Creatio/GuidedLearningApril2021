@@ -1,0 +1,9 @@
+﻿{
+  "Descriptor": {
+    "UId": "80e20bc7-31eb-4ed6-a05c-d5a9b6107c02",
+    "Name": "ProcessUserTask_Clio",
+    "ModifiedOnUtc": "\/Date(1619452105000)\/",
+    "ManagerName": "ProcessUserTaskSchemaManager",
+    "Caption": "Methods from Clio"
+  }
+}
