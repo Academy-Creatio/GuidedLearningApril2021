@@ -11,9 +11,9 @@
 |4|[Lesson 4][d4v]|
 |5|[Lesson 5][d5v]|
 |6|[Lesson 6][d6v]|
-|7|[Lesson 7][d1v]|
+|7|[Lesson 7][d7v]|
 <!--
-|8|[Lesson 1][d1v]|
+|8|[Lesson 8][d1v]|
   -->
 
 
