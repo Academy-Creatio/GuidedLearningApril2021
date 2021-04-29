@@ -12,6 +12,8 @@
 			<Item Name="LocalizableStrings.EnrichCloudCaption.Value" Value="New data found" />
 			<Item Name="LocalizableStrings.ESNTabCaption.Value" Value="Feed" />
 			<Item Name="LocalizableStrings.FillContactWithSocialNetworksDataActionCaption.Value" Value="Update with social networks data" />
+			<Item Name="LocalizableStrings.MyRedBtnCaption.Value" Value="My Red Button" />
+			<Item Name="LocalizableStrings.MyRedBtnHint.Value" Value="My Red Btn Hint !!!" />
 			<Item Name="LocalizableStrings.RelationshipTabCaption.Value" Value="Connected to" />
 			<Item Name="LocalizableStrings.SubscribeCaption.Value" Value="Follow the feed" />
 			<Item Name="LocalizableStrings.SubscribedInformationDialog.Value" Value="You are now following feed: {0}" />

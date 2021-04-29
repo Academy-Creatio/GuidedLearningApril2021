@@ -8,6 +8,8 @@
 			<Item Name="LocalizableStrings.EnrichCloudCaption.Value" Value="Nuevos datos encontrados" />
 			<Item Name="LocalizableStrings.ESNTabCaption.Value" Value="Retroalimentación" />
 			<Item Name="LocalizableStrings.FillContactWithSocialNetworksDataActionCaption.Value" Value="Enriquecer con datos de redes sociales" />
+			<Item Name="LocalizableStrings.MyRedBtnCaption.Value" Value="My Red Button (ES)" />
+			<Item Name="LocalizableStrings.MyRedBtnHint.Value" Value="My Red Btn Hint (ES)" />
 			<Item Name="LocalizableStrings.RelationshipTabCaption.Value" Value="Connected to" />
 			<Item Name="LocalizableStrings.SubscribeCaption.Value" Value="Sigue el feed" />
 			<Item Name="LocalizableStrings.SubscribedInformationDialog.Value" Value="Ahora estás siguiendo el feed: {0}" />

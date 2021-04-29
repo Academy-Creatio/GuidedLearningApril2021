@@ -11,8 +11,8 @@
 |4|[Lesson 4][d4v]|
 |5|[Lesson 5][d5v]|
 |6|[Lesson 6][d6v]|
-<!--
 |7|[Lesson 1][d1v]|
+<!--
 |8|[Lesson 1][d1v]|
   -->
 
@@ -26,7 +26,8 @@
 [d3v]:https://creatio-global.zoom.us/rec/share/TOp4Fy9sP_N6RnsFZcfBs2yPA-MxWArX9-8XoGeVNHi_j_vxSigvsIyuwyuRsf3i.NEXFQO0s4bTeenz5?startTime=1619100018000
 [d4v]:https://creatio-global.zoom.us/rec/share/8KD1u-3wYiI0OrDBaFRsfS5kiaOCzQrCUzn11OxADpE38i99K0GsveNJIHoAsRQV.TynUjxZ5NEYx1Wy0
 [d5v]:https://creatio-global.zoom.us/rec/share/NBuwsll58rGCMlxz8qfwq5AERKNcZOmB0NCEs5YNjT453YOBVRwQkpYhWhDiOeA.ZAJNcz14DjN19Mb3?startTime=1619445537000
-[d6v]: https://creatio-global.zoom.us/rec/share/8TRtuGsFrTjwyKwUGcA5QFLqcH8vOHSXrSOiBthITCj4CN04aWBINKv5cL-PdV8g.An8UAwnhxNZm6ngM
+[d6v]:https://creatio-global.zoom.us/rec/share/8TRtuGsFrTjwyKwUGcA5QFLqcH8vOHSXrSOiBthITCj4CN04aWBINKv5cL-PdV8g.An8UAwnhxNZm6ngM
+[d7v]:https://creatio-global.zoom.us/rec/share/HmPBCA3zZ6A2cjIbPOVpadQ7eeSbf25BWP5NntVrExcXaChoKJbUfR36idgg8DkE.koXzMhHOO0_UNt_Z
 
 
 <!-- Articles -->
