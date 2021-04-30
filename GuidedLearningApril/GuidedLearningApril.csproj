@@ -37,6 +37,7 @@
       <HintPath>packages\CreatioSDK.7.17.4.2265\lib\net40\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Web" />
@@ -139,6 +140,8 @@
     <Compile Include="Files\cs\AnotherCalculator.cs" />
     <Compile Include="Files\cs\Calculator.cs" />
     <Compile Include="Files\cs\DemoWs.cs" />
+    <Compile Include="Files\cs\DTO\DemoRequestDTO.cs" />
+    <Compile Include="Files\cs\DTO\DemoResponseDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <!-- ##BpmonlineSDKMarker## -->

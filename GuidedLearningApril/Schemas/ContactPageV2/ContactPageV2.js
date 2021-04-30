@@ -1,4 +1,4 @@
-define("ContactPageV2", [], function() {
+define("ContactPageV2", ["ServiceHelper"], function(ServiceHelper) {
 	return {
 		entitySchemaName: "Contact",
 		attributes: {
@@ -67,11 +67,16 @@ define("ContactPageV2", [], function() {
 				this.showConfirmationDialog(
 					"ARE YOU SURE YOU WANT TO PROCEED ?",
 					function (returnCode) {
+						
 						if (returnCode === this.Terrasoft.MessageBoxButtons.NO.returnCode) {
-							return;
+							this.serviceExample();
 						}
-						//window.console.log("yes clicked");
-						this.doESQ();
+						
+						
+						if (returnCode === this.Terrasoft.MessageBoxButtons.YES.returnCode) {
+							//window.console.log("yes clicked");
+							this.doESQ();
+						}
 					},
 					[
 						//this.Terrasoft.MessageBoxButtons.NO.returnCode,
@@ -204,14 +209,49 @@ define("ContactPageV2", [], function() {
 
 				var tag = arguments[3];
 				this.showInformationDialog("Red button clicked with tag " + tag);
+			},
+
+
+			serviceExample: function(){
+
+				var name = this.$Name;
+				var birthday = this.$CreatedOn;
+
+				var serviceData = {
+					"demoRequestDTO":{
+						"name": name,
+						"birthday": birthday,
+						"age": 39
+					}
+				};
+				
+				var serviceData = {
+					"Id": this.$Id
+				};
+				
+
+				// Calling the web service and processing the results.
+				//https://[appName].domaincom/0/rest/ClassName/MethodName
+				ServiceHelper.callService(
+					"DemoWs", 
+					"PostMethodName",
+					function(response) {
+						debugger;
+						this.showInformationDialog(response.PostMethodNameResult.string);
+					}, 
+					serviceData, 
+					this);
+
+
 			}
+
 		},
 		dataModels: /**SCHEMA_DATA_MODELS*/{}/**SCHEMA_DATA_MODELS*/,
 		diff: /**SCHEMA_DIFF*/[
 			{
 				"operation": "insert",
 				"name": "MyRedButton",
-				"parentName": "ContactGeneralInfoBlock",
+				"parentName": "PhotoTimeZoneContainer",
 				"propertyName": "items",
 				"values":{
 					"layout": {
